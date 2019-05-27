@@ -1,1 +1,64 @@
+ion-title, ion-content {
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.img {
+    margin: auto;
+    padding-top: 5px;
+    height: 30% !important; 
+    width: 20% !important; 
+}
+
+.grid {
+    --columns: 300px 300px;
+}
+
+#contact {
+    background-color: #16f;
+    height: 200px;
+    clear: both;
+}
+
+form {
+    font-size: 15px;
+    background-color: white;
+    padding: 20px;
+    padding-top: 7.5px;
+    border-radius: 5px;
+    flex-direction: column;
+    margin: 10px;
+    height: 180px;
+}
+
+form input {
+    margin: 5px 0;
+    border: 0;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: var(--columns);
+    grid-auto-rows: 225px;
+    justify-content: center;
+}
+
+@media all and (max-width: 600px) {
+    .grid {
+        --columns: 300px;
+    }
+}
+
+.submit {
+    background-color: gold;
+    margin: 5px 0;
+    border-radius: 5px;
+    padding: 5px;
+    width: 250px;
+}
+
+.ion-padding {
+    text-align: center;
+}
