@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { PRIMARY_OUTLET } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,30 +12,42 @@ export class HomePage {
   
   public myDateOfBirth: String;
 
-  constructor() {}
+  constructor(public toastController: ToastController, private alertCtrl: AlertController) {}
 
   ionViewDidEnter() {
     this.myDateOfBirth = "2000-03-31";
   }
 
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'This is a button!',
+      subHeader: 'Not much else to it.',
+      message: 'Thanks for pressing!',
+      buttons: ['Alrighty I\'m done then']
+    });
+
+    await alert.present();
+  }
+
   pressMe() {
-    alert("Welcome to my page!");
+    this.presentAlert();
   }
 
-  submitInfo() {
-    alert("Great to know!");
+  async submitInfo() {
+    const alert = await this.alertCtrl.create({
+      header: "Great to know!",
+      subHeader: 'I can\'t actually store this information.',
+      message: 'But feel free to share in person!',
+      buttons: ['PCE']
+    });
+    await alert.present();
   }
-
-}
-
-export class ToastExample {
-
-  constructor(public toastController: ToastController) {}
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Your settings have been saved.',
-      duration: 2000
+      message: 'Cheers mate.',
+      duration: 2000,
+      color: PRIMARY_OUTLET
     });
     toast.present();
   }
